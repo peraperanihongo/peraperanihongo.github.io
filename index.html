@@ -12,6 +12,9 @@
     <link href="assets/img/icon.png" rel="icon" />
     <link href="assets/img/icon.png" rel="icon" />
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
 
@@ -69,7 +72,7 @@
         <!-- <h3>Selamat datang di website<strong>Perapera Nihongo</strong></h3> -->
         <h1>Perapera Nihongo</h1>
         <h2>Belajar bahasa jepang dimana dan kapan saja</h2>
-        <a href="#about" class="btn-get-started scrollto">Daftar Sekarang!</a>
+        <a href="https://forms.gle/zbjFkMuYiDyipkWa8" class="btn-get-started scrollto">Daftar Sekarang!</a>
       </div>
     </section>
     <!-- End Hero -->
@@ -77,6 +80,7 @@
     <main id="main">
       <!-- ======= About Section ======= -->
       <section id="about" class="about">
+        <div data-aos="fade-up">
         <div class="container">
           <div class="section-title">
             <h2>Tentang Kami</h2>
@@ -101,6 +105,7 @@
             </h6>
           </div>
         </div>
+      </div>
       </section>
       <!-- End About Section -->
 
@@ -277,10 +282,36 @@
           <h3>Berikut adalah <span>Skema Pendaftaran</span> di Perapera Nihongo</h3>
         </div>
 
-        <div class="row">
-          
+        <!-- <div class="row">  
           <a href="#" class="skema"><img src="assets/img/skema.png" alt="skema" class="img-fluid" /></a>
         </div>
+
+        <h2 style="text-align:center">Lightbox</h2> -->
+
+        <div class="row">
+          <div class="column">
+            <img src="assets/img/skema.png"  onclick="openModal();currentSlide(1)" alt ="skema" class="hover-shadow cursor img-fluid">
+          </div>
+          
+        </div>
+        
+        <div id="myModal" class="modal">
+          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="modal-content">
+        
+            <div class="mySlides">
+              <img src="assets/img/skema.png" style="width:100%">
+            </div>
+        
+            
+           
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+        
+          </div>
+        </div>
+        
 
       </div>
     </section><!-- End Services Section -->
@@ -435,9 +466,7 @@
                   <li class="na">Pharetra massa</li>
                   <li class="na">Massa ultricies mi</li>
                 </ul> -->
-                <div class="btn-wrap">
-                  <a href="#" class="btn-buy">Regist Now</a>
-                </div>
+               
               </div>
             </div>
 
@@ -455,9 +484,7 @@
                     <li class="na">Pharetra massa</li>
                     <li class="na">Massa ultricies mi</li>
                   </ul> -->
-                  <div class="btn-wrap">
-                    <a href="#" class="btn-buy">Regist Now</a>
-                  </div>
+                  
               </div>
             </div>
 
@@ -477,9 +504,7 @@
                     <li class="na">Pharetra massa</li>
                     <li class="na">Massa ultricies mi</li>
                   </ul> -->
-                  <div class="btn-wrap">
-                    <a href="#" class="btn-buy">Regist Now</a>
-                  </div>
+                  
               </div>
             </div>
             <div class="catatan">
@@ -609,7 +634,75 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="https://kit.fontawesome.com/299269cd8c.js" crossorigin="anonymous"></script>
 
+    <!-- Aos -->
+   
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    const progress = document.querySelectorAll('.progress-bar');
+    progress.forEach((progress, i) =>{
+    progress.dataset.aos = 'fade-right';
+    })
+    const container = document.querySelectorAll('.container');
+    container.forEach((container) =>{
+    container.dataset.aos = 'fade-up';
+    })
+
+      AOS.init({
+        once : true,
+        duration : 1000,
+      });
+    </script>
+
+<script>
+  AOS.init({
+    animatedContainer : 'fade-up',
+  });
+
+</script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- LIGHTBOX -->
+    <script>
+      function openModal() {
+        document.getElementById("myModal").style.display = "block";
+      }
+      
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+      
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+      </script>
+
+
   </body>
 </html>
