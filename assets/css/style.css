@@ -1013,6 +1013,7 @@ section {
 .biaya .box {
   padding: 20px;
   background: #f9f9f9;
+  background-size: contain;
   text-align: center;
   border-radius: 8px;
   position: relative;
