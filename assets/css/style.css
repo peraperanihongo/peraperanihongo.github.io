@@ -467,6 +467,9 @@ section {
 .about .content {
   letter-spacing: 1px;
 }
+H6{
+  margin-bottom: 20px;
+}
 /* .about .content ul {
   list-style: none;
   padding: 0;
