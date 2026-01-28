@@ -2120,3 +2120,34 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      height: 100%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(13,110,253,0.2);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #6c757d;
+      line-height: 1.6;
+    }
